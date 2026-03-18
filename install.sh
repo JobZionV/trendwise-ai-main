@@ -7,6 +7,15 @@ if [ ! -d "venv" ]; then
     python3 -m venv venv
 fi
 source venv/bin/activate
+
+echo "Checking for NVIDIA GPU for CUDA support..."
+if command -v nvidia-smi &> /dev/null; then
+    echo "NVIDIA GPU detected. Installing PyTorch with CUDA 12.6 support..."
+    pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu126
+else
+    echo "No NVIDIA GPU detected. Proceeding with standard PyTorch installation..."
+fi
+
 pip install -r requirements.txt
 echo "Downloading Models..."
 python3 download_models.py

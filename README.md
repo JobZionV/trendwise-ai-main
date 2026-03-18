@@ -1,5 +1,7 @@
 # TrendWise AI
 
+**🤗 Hugging Face Repo:** [https://huggingface.co/JobZionV/Trendwise-AI/tree/main](https://huggingface.co/JobZionV/Trendwise-AI/tree/main)
+
 TrendWise AI is a comprehensive full-stack application that leverages advanced Natural Language Processing (NLP) models to analyze trends, detect sentiment, and classify topics from text inputs. The repository consists of a React frontend, a Node.js intermediary backend, and a high-performance Python ML engine.
 
 ## 🚀 Features
@@ -24,7 +26,7 @@ The system provides automated scripts to set up the environment on both Windows 
 
 Ensure you have the following installed on your machine:
 *   [Node.js](https://nodejs.org/) (v16 or higher)
-*   [Python](https://www.python.org/downloads/) (3.8 or higher)
+*   [Python](https://www.python.org/downloads/) (3.10 or higher)
 *   [Git](https://git-scm.com/downloads)
 
 ### 🔑 1. Configure API Keys
@@ -43,7 +45,9 @@ Before starting the installation, you must provide your own API keys for the Pyt
 
 ### 📦 2. Install Dependencies & Download Models
 
-The installation script will automatically create a Python virtual environment, install PIP and NPM dependencies, and download the necessary AI models (~1.4GB) from HuggingFace.
+The installation script will automatically create a Python virtual environment, install PIP and NPM dependencies, and download the necessary AI models (~1.4GB) from our [Hugging Face Repo](https://huggingface.co/JobZionV/Trendwise-AI/tree/main).
+
+> **Note on PyTorch & CUDA**: The installation scripts (`install.bat` and `install.sh`) will automatically check if you have an NVIDIA GPU installed (by looking for `nvidia-smi`). If detected, it will automatically install the CUDA 12.6 version of PyTorch for GPU acceleration. Otherwise, it will fall back to the standard CPU version. You can manually install it if needed by running `pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu126` in the `backend/python-backend/venv` environment.
 
 #### On Windows:
 Double-click `install.bat` from the root directory or run it in your command prompt:
