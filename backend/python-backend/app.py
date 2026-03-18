@@ -49,7 +49,12 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 print(f"   Device Selected: {device}")
 
 # NLP Tools
-nlp = spacy.load("en_core_web_trf")
+try:
+    nlp = spacy.load("en_core_web_trf")
+except OSError:
+    import spacy.cli
+    spacy.cli.download("en_core_web_trf")
+    nlp = spacy.load("en_core_web_trf")
 nltk.download("wordnet",   quiet=True)
 nltk.download("stopwords", quiet=True)
 stop_words = set(stopwords.words("english"))
